@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<!-- 認証エラーがあった際に表示 -->
+	<div th:unless="${#strings.isEmpty(error)}">
+		<div th:text="${error}" style="color: red;"></div>
+	</div>
+	
+	<!--  -->
+	<form method="post" th:action="@{loginCertification}">
+		<!-- Spring Securityのユーザー名のname属性はデフォルトでusername -->
+		<label for="username">ユーザー名</label>
+		<input id="username" name="username" type="text"></input>
+		
+		<!-- Spring Securityのパスワードのname属性はデフォルトでpassword -->
+		<label for="password">パスワード</label>
+		<input id="password" name="password" type="password"></input>
+		
+		<button type="submit">ログイン</button>
+	</form>
+</body>
+
+</html>
