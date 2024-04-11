@@ -37,7 +37,7 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
 			AuthenticationException exception) throws IOException, ServletException {
 	
 		//指定したURLにリダイレクト
-		super.setDefaultFailureUrl(Constants.LOGIN_PATH + "?error=true");
+		super.setDefaultFailureUrl(Constants.LOGIN_PATH + "?" + Constants.ERROR + "=true");
 		super.onAuthenticationFailure(request, response, exception);
 	}
 	

@@ -46,7 +46,7 @@ public class SecurityConfig {
 						// セッションを無効にする
 						.invalidateHttpSession(true)
 						//特定のクッキーを削除
-						.deleteCookies("JSESSIONID")
+						.deleteCookies(Constants.JSESSIONID)
 				)
 				
 				//認証なしでの許可パス設定

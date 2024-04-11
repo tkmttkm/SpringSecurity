@@ -25,4 +25,11 @@ public class Constants {
 	public static final String AUTH_USER = "USER";
 	public static final String AUTH_ADMIN = "ADMIN";
 	
+	public static final String JSESSIONID = "JSESSIONID";
+	
+	public static final String ERROR = "error";
+	
+	
+	//message.properties key
+	public static final String ERROR_LOGIN_FAILURE = "error.login.failure";
 }

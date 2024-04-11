@@ -38,10 +38,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		if(StringUtils.isBlank(userId)) {
-			throw new UsernameNotFoundException("社員番号を正しく入力してください。");
+			throw new UsernameNotFoundException(null);
 		}
 		
 		Integer userID = Integer.parseInt(userId);
+		//ユーザー情報の取得、認証
 		List<UserEntity> allData = repository.findAll();
 		for(UserEntity data: allData) {
 			if(Integer.compare(userID, data.getUserId()) == 0) {
@@ -51,9 +52,16 @@ public class CustomUserDetailsService implements UserDetailsService {
 			}
 		}
 		
-		throw new UsernameNotFoundException("社員番号の登録がありません。入力社員番号 : " + userId);
+		throw new UsernameNotFoundException(null);
 	}
 	
+	/**
+	 * <pre>
+	 * Spring Securityの権限タイプをセットする
+	 * </pre>
+	 * @param auth_type
+	 * @return 権限リスト
+	 */
 	private List<GrantedAuthority> toGrantedAuthorityList(String auth_type) {
 		return Collections.singletonList(new SimpleGrantedAuthority(auth_type));
 	}
