@@ -23,14 +23,20 @@ repositories {
 }
 
 dependencies {
+	//データベース接続はSpring Data JPAを用います
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//Spring Security	
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//htmlにはThymeleaf使用
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+	//GetterやSetterの生成のためにlomboc使用
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//DBはh2を使用
 	runtimeOnly 'com.h2database:h2'
+	//コンソールに取得データや発行したSQLを表示するために使用
 	runtimeOnly 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
